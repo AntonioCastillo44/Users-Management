@@ -90,8 +90,8 @@ function App() {
       <button onClick={handleChangeModal} className='App__header__btn'><img className='div__btn__img__update' src={addImg} alt=""/> Add user </button>
       </div>
   
-      <div className={`App__UsersForm ${modal && "disable-form"}`}>
-        <UsersForm register={register} handleSubmit={handleSubmit} submit={submit} userUpdate={userUpdate} handleChangeModal={handleChangeModal}/>
+      <div className={`App__UsersForm ${modal ? "" : "disable-form"}`}>
+        <UsersForm register={register} handleSubmit={handleSubmit} submit={submit} userUpdate={userUpdate} handleChangeModal={handleChangeModal} setUserUpdate={setUserUpdate}/>
       </div>
 
       <div className='App__UsersList'>

@@ -1,9 +1,14 @@
 import React from 'react'
 
-const UsersForm = ({register, handleSubmit, submit, userUpdate, handleChangeModal}) => {
+const UsersForm = ({register, handleSubmit, submit, userUpdate, handleChangeModal, setUserUpdate}) => {
+    const handleCloseModal = () => {
+        handleChangeModal()
+        setUserUpdate()
+    } 
+
   return (
     <form className='form' onSubmit={handleSubmit(submit)}>
-        <i onClick={handleChangeModal} class='form__x bx bx-x'></i>
+        <i onClick={handleCloseModal} class='form__x bx bx-x'></i>
                 <h1 className='form__h1' >{userUpdate?"Edit User":"New user"}</h1>
         <div className='form__div'> 
             <label className='form__label' c html="">Email</label>
@@ -25,7 +30,7 @@ const UsersForm = ({register, handleSubmit, submit, userUpdate, handleChangeModa
             <label className='form__label' html="">Birthday</label>
             <input className='form__input' type='date'{...register("birthday")} />
         </div>
-        <button className='form__btn' > Edit User </button>
+        <button className='form__btn' > Save Changes </button>
     </form>
     
   )
